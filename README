@@ -1,0 +1,45 @@
+Stanca Aurelian Rares 314 CB - Tema 2 SD 2020
+
+Teste - [81/85]
+Valgrind - [0/20]
+
+In main am folosit functia freopen ca sa redirectez ce intra in stdout in
+fisierul primit ca parametru.
+
+Functiile sunt destul de straightforward, am incercat sa tin codul cat mai
+curat si na nu ma aglomerez cu n functii auxiliare.
+
+Cred ca singura functie care are nevoie de o explicatie suplimentara este
+wait-ul. Am calculat prima data cati bytes downloadez (time * bandwidth), dupa
+am facut un while cat timp numarul de bytes este diferit de 0 si in while-ul
+ala se cam intampla tot.
+
+Avem trei cazuri. Daca:
+    I -> bytes = remaining
+        
+        In cazul asta inseamna ca resursa se va downloada complet, deci schimb
+        valoarea currently_downloaded in dimension si scot resursa din
+        coada de download_priority si o adaug in cea de completed. Totodata
+        fac bytes = 0 pentru ca s-au consumat toti.
+
+    II -> bytes < remaining
+        
+        In cazul asta inseamna ca resursa nu se va downloada complet, dar se
+        va consuma numarul de bytes.
+
+    III -> bytes > remaining
+        
+        In cazul asta resursa se va downloada complet, se scoate din 
+        download_priority si se adauga in completed ca la primul caz, doar ca
+        de data asta numarul de bytes nu se consuma deci vom scadea din bytes
+        remaining-ul.
+
+Sper ca tema este scrisa cat de cat ok si coding-style-ul este si el in regula.
+
+Feedback:
+By far tema mea preferata ever. No idea why dar i loved it si am lucrat la
+ea cu drag. Singurele "probleme" cred ca au fost de comunicare la partea de 
+downloads cu stiva de priority nu se intelegea super bine ce trebuie sa faca.
+
+Timp de lucru: ~ 16 ore
+Dificultate: usoara - medie
